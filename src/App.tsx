@@ -181,7 +181,7 @@ function App() {
 
           <div className="mt-6">
             <img
-              src="https://images.pexels.com/photos/534216/pexels-photo-534216.jpeg"
+              src="https://raw.githubusercontent.com/joshuaFrias95/Encriptador-Alura-Oracle-ONE/main/img/readme/aluraoracle.png"
               alt="Monedas del mundo"
               className="w-full h-32 object-cover rounded-lg"
             />

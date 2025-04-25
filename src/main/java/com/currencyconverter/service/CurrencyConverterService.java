@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Service class responsible for currency conversion operations.
+ * Clase de servicio responsable de las operaciones de conversión de moneda.
  */
 public class CurrencyConverterService {
     private final ExchangeRateClient apiClient;
@@ -25,9 +25,9 @@ public class CurrencyConverterService {
     }
     
     /**
-     * Fetches the latest exchange rates from the API.
+     * Obtiene las tasas de cambio más recientes desde la API.
      * 
-     * @return true if rates were successfully fetched, false otherwise
+     * @return true si las tasas se obtuvieron con éxito, false en caso contrario
      */
     public boolean fetchLatestRates() {
         ExchangeRateResponse response = apiClient.getLatestRates();
@@ -42,10 +42,10 @@ public class CurrencyConverterService {
     }
     
     /**
-     * Filters the API response to only include rates for supported currencies.
+     * Filtra la respuesta de la API para incluir solo tasas de monedas soportadas.
      * 
-     * @param allRates map of all rates from the API
-     * @return map containing only supported currency rates
+     * @param allRates mapa de todas las tasas desde la API
+     * @return mapa que contiene solo las tasas de monedas soportadas
      */
     private Map<String, Double> filterSupportedRates(Map<String, Double> allRates) {
         Map<String, Double> filteredRates = new HashMap<>();
@@ -61,12 +61,12 @@ public class CurrencyConverterService {
     }
     
     /**
-     * Converts an amount from one currency to another.
+     * Convierte una cantidad de una moneda a otra.
      * 
-     * @param fromCurrency the source currency
-     * @param toCurrency the target currency
-     * @param amount the amount to convert
-     * @return the converted amount or -1 if conversion failed
+     * @param fromCurrency la moneda de origen
+     * @param toCurrency la moneda de destino
+     * @param amount la cantidad a convertir
+     * @return la cantidad convertida o -1 si la conversión falló
      */
     public double convert(Currency fromCurrency, Currency toCurrency, double amount) {
         if (rates.isEmpty()) {
@@ -75,7 +75,7 @@ public class CurrencyConverterService {
             }
         }
         
-        // Get rates for both currencies (relative to USD)
+        // Obtiene las tasas para ambas monedas (relativas al USD)
         Double fromRate = rates.get(fromCurrency.getCode());
         Double toRate = rates.get(toCurrency.getCode());
         
@@ -83,41 +83,41 @@ public class CurrencyConverterService {
             return -1;
         }
         
-        // Calculate conversion (through USD as the base)
+        // Calcula la conversión (a través del USD como base)
         if (fromCurrency == Currency.USD) {
             return amount * toRate;
         } else if (toCurrency == Currency.USD) {
             return amount / fromRate;
         } else {
-            // Convert to USD first, then to target currency
+            // Convierte primero a USD, luego a la moneda de destino
             double amountInUSD = amount / fromRate;
             return amountInUSD * toRate;
         }
     }
     
     /**
-     * Format a currency amount with the appropriate decimal places.
+     * Formatea una cantidad de moneda con los decimales apropiados.
      * 
-     * @param amount the amount to format
-     * @return formatted currency string
+     * @param amount la cantidad a formatear
+     * @return cadena de texto con la moneda formateada
      */
     public String formatCurrency(double amount) {
         return decimalFormat.format(amount);
     }
     
     /**
-     * Gets all available exchange rates.
+     * Obtiene todas las tasas de cambio disponibles.
      * 
-     * @return map of currency codes to their rates
+     * @return mapa de códigos de moneda a sus tasas
      */
     public Map<String, Double> getRates() {
         return rates;
     }
     
     /**
-     * Gets the last updated timestamp for the rates.
+     * Obtiene la marca de tiempo de la última actualización de las tasas.
      * 
-     * @return last updated timestamp
+     * @return marca de tiempo de la última actualización
      */
     public String getLastUpdated() {
         return lastUpdated;

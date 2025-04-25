@@ -1,7 +1,7 @@
 package com.currencyconverter.model;
 
 /**
- * Enum representing supported currencies with their codes and display names.
+ * Enum que representa las monedas soportadas con sus códigos y nombres de visualización.
  */
 public enum Currency {
     ARS("ARS", "Argentine Peso"),
@@ -30,8 +30,8 @@ public enum Currency {
     /**
      * Get a currency by its code
      * 
-     * @param code the currency code to look up
-     * @return the Currency enum value or null if not found
+     * @param code 
+     * @return 
      */
     public static Currency getByCode(String code) {
         for (Currency currency : values()) {

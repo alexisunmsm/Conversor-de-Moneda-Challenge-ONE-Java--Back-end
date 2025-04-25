@@ -3,7 +3,7 @@ package com.currencyconverter.model;
 import java.util.Map;
 
 /**
- * Model class representing the response from the Exchange Rate API.
+ * Model class para Exchange Rate API.
  */
 public class ExchangeRateResponse {
     private String result;
@@ -16,7 +16,7 @@ public class ExchangeRateResponse {
     private String base_code;
     private Map<String, Double> conversion_rates;
     
-    // Getters and setters
+    // Getters y setters
     
     public String getResult() {
         return result;

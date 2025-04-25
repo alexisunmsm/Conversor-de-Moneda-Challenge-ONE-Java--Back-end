@@ -6,7 +6,7 @@ import com.currencyconverter.service.CurrencyConverterService;
 import java.util.Scanner;
 
 /**
- * Console-based user interface for the Currency Converter application.
+ * Interfaz de usuario basada en consola para la aplicación del Conversor de Moneda.
  */
 public class ConsoleMenu {
     private final Scanner scanner;
@@ -39,7 +39,7 @@ public class ConsoleMenu {
     }
     
     /**
-     * Displays a welcome message when the application starts.
+     * Muestra un mensaje de bienvenida cuando la aplicación inicia.
      */
     private void displayWelcomeMessage() {
         System.out.println("=============================================");
@@ -63,7 +63,7 @@ public class ConsoleMenu {
     }
     
     /**
-     * Processes the user's choice from the main menu.
+     * Processe - menu.
      * 
      * @param choice the user's menu selection
      */
