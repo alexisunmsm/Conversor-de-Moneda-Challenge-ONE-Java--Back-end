@@ -33,7 +33,14 @@ mvn clean package
 java -jar target/currency-converter-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 ```
-
+Instala las dependencias necesarias para ver el front end:
+```bash
+npm install
+```
+Ejecuta la aplicación de desarrollo del frontend:
+```bash
+npm run dev
+```
 ## Estructura del Proyecto
 
 - `Main.java`: Punto de entrada de la aplicación
